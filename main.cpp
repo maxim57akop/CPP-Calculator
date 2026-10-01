@@ -1,18 +1,19 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+using namespace std;
 
 int main() {
-    std::string input;
-    std::cout << "Enter a mathematical expression (e.g., 3 + 4): ";
-    std::getline(std::cin, input);
+    string input;
+    cout << "Enter a mathematical expression (e.g., 3 + 4): ";
+    getline(cin, input);
 
-    std::istringstream iss(input);
+    istringstream iss(input);
     double num1, num2;
     char op;
 
     if (!(iss >> num1 >> op >> num2)) {
-        std::cerr << "Invalid input format." << std::endl;
+        cerr << "Invalid input format." << endl;
         return 1;
     }
 
@@ -29,16 +30,16 @@ int main() {
             break;
         case '/':
             if (num2 == 0) {
-                std::cerr << "Error: Division by zero." << std::endl;
+                cerr << "Error: Division by zero." << endl;
                 return 1;
             }
             result = num1 / num2;
             break;
         default:
-            std::cerr << "Invalid operator." << std::endl;
+            cerr << "Invalid operator." << endl;
             return 1;
     }
 
-    std::cout << "Result: " << result << std::endl;
+    cout << "Result: " << result << endl;
     return 0;
 }
